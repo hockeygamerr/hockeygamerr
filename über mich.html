@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Über mich</title>
+<style>
+  :root {
+    --discord-blue: #5865F2;
+    --twitch-purple: #9146FF;
+    --bg-dark: #121212;
+    --bg-light: #f0f0f0;
+    --text-dark: #ffffff;
+    --text-light: #000000;
+  }
+
+  body {
+    margin: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: var(--bg-dark);
+    color: var(--text-dark);
+    transition: background-color 0.3s, color 0.3s;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    text-align: center;
+    padding: 2rem;
+  }
+
+  body[data-theme="light"] {
+    background-color: var(--bg-light);
+    color: var(--text-light);
+  }
+
+  /* Startseite Button links oben */
+ .btn-startseite {
+  position: fixed;
+  top: 1rem;
+  left: 1rem;
+  padding: 0.6rem 1.4rem;
+  font-weight: 700;
+  font-size: 1rem;
+  border: none;
+  border-radius: 25px;
+  color: white;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  user-select: none;
+  background-color: #9146FF;
+  box-shadow: 0 0 10px rgba(145, 70, 255, 0.7);
+  text-decoration: none;
+}
+.btn-startseite:hover {
+  background-color: #7a38d3;
+}
+
+  /* Statischer dezenter Glow */
+  .glow-text {
+    font-size: 1.3rem;
+    max-width: 600px;
+    margin: 0 auto;
+    text-shadow:
+      0 0 4px rgba(88, 101, 242, 0.6),
+      0 0 8px rgba(88, 101, 242, 0.4);
+    color: var(--text-dark);
+  }
+
+  .glow-heading {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    text-shadow:
+      0 0 5px rgba(88, 101, 242, 0.7),
+      0 0 10px rgba(88, 101, 242, 0.5);
+    color: var(--text-dark);
+  }
+
+  /* Light Mode Anpassungen */
+  body[data-theme="light"] .glow-text {
+    color: var(--text-light);
+    text-shadow:
+      0 0 3px rgba(68, 68, 68, 0.3),
+      0 0 6px rgba(68, 68, 68, 0.2);
+  }
+  body[data-theme="light"] .glow-heading {
+    color: var(--text-light);
+    text-shadow:
+      0 0 4px rgba(68, 68, 68, 0.4),
+      0 0 8px rgba(68, 68, 68, 0.3);
+  }
+
+  /* Dark/Light Toggle Button rechts oben */
+  .toggle-btn {
+    position: fixed;
+    top: 1rem;
+    right: 1rem;
+    background: none;
+    border: 2px solid var(--discord-blue);
+    color: var(--discord-blue);
+    padding: 0.4rem 0.8rem;
+    border-radius: 8px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s;
+    user-select: none;
+    z-index: 1000;
+  }
+
+  .toggle-btn:hover {
+    background-color: var(--discord-blue);
+    color: white;
+  }
+
+  /* Responsive */
+  @media (max-width: 600px) {
+    .glow-text {
+      font-size: 1.1rem;
+      max-width: 90%;
+    }
+    .glow-heading {
+      font-size: 1.8rem;
+    }
+    .btn-startseite {
+      padding: 0.5rem 1rem;
+      font-size: 0.9rem;
+    }
+    .toggle-btn {
+      padding: 0.3rem 0.6rem;
+      font-size: 0.9rem;
+    }
+  }
+</style>
+</head>
+<body data-theme="dark">
+
+<a href="my site.html" class="btn-startseite" role="button">Startseite</a>
+
+<h1 class="glow-heading">Über mich</h1>
+
+<p class="glow-text"> 
+Hi, ich bin hockeygamerr leidenschaftlicher Twitch/Discord Moderator.
+Meine Freizeit verbringe ich auf Twitch und Discord.
+Ich versuche mich immer weiterzubilden, um mein Spektrum zu erweitern.
+</p>
+
+<button class="toggle-btn" id="themeToggle">Mode wechseln</button>
+
+<script>
+  const toggleBtn = document.getElementById('themeToggle');
+  const body = document.body;
+
+  toggleBtn.addEventListener('click', () => {
+    if(body.getAttribute('data-theme') === 'dark'){
+      body.setAttribute('data-theme', 'light');
+      toggleBtn.textContent = 'Mode wechseln';
+    } else {
+      body.setAttribute('data-theme', 'dark');
+      toggleBtn.textContent = 'Mode wechseln';
+    }
+  });
+</script>
+
+</body>
+</html>
